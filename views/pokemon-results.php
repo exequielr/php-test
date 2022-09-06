@@ -21,12 +21,19 @@
     <p>
         Especies:
         <?php
+           echo json_encode($data->species);
         ?>
     </p>
     <p>
         sprites:
         <?php
+            foreach($data->sprites as $name => $value) {
+                if(is_string($value)){
+                    echo "$name => <img src='$value'> <br>";
+                }
+            }
         ?>
     </p>
+    <a href="pokemon-search.php">Volver</a>
 </body>
 </html>

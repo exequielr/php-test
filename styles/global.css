@@ -57,3 +57,9 @@ a {
   width: 100%;
   max-width: 20rem;
 }
+
+.error {
+  color: red;
+  font-size: 0.8rem;
+  margin: 0;
+}

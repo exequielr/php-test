@@ -8,10 +8,25 @@
     <title>Pokemon search</title>
 </head>
 <body class="container">
-    <form action="../models/search.php" method="POST">
+    <?php
+        $error = null;
+        if(isset($_POST['submit'])){
+            $number = $_POST['number'];
+            if($number){
+                header("Location: /php-test/views/pokemon-results.php?number=$number");
+                exit();
+            }else{
+                $error = "Ingrese un numero valido";
+            }
+        }
+    ?>
+    <form method="POST">
         <h1>Buscar Pokemon</h1>
         <input type="number" name="number" placeholder="Ingresa un número" class="secondary-input">
-        <button type="submit" name="submit" class="btn-large">Buscar</button>
+        <?php if($error): ?>
+        <p class="error">Ingrese un número valido</p>
+        <?php endif ?>
+        <button name="submit" class="btn-large">Buscar</button>
     </form>
 </body>
 </html>
