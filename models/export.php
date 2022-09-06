@@ -5,6 +5,8 @@
     header('Content-Type: text/cvs; charset=UTF-8');
     header('Content-Disposition: attachment; filename=customer-data.csv');
 
+    $connection = Connection::connect('form');
+    
     $output = fopen("php://output", "w");
     fputcsv($output, array('name', 'lastname', 'id', 'email', 'address', 'phone', 'keyword'));
     $query = mysqli_query($connection, "SELECT * FROM users");
