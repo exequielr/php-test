@@ -7,6 +7,7 @@
   justify-content: center;
   background-color: #eee;
   font-family: Tahoma, sans-serif;
+  text-align: center;
 }
 
 .form {
@@ -62,4 +63,22 @@ a {
   color: red;
   font-size: 0.8rem;
   margin: 0;
+}
+
+.pokemon-name {
+  color: #ffcb05;
+  -webkit-text-stroke: 2px #3663ad;
+  text-transform: uppercase;
+  font-size: 3rem;
+  font-weight: 900;
+}
+
+.sprites-section {
+  display: flex;
+  justify-content: center;
+}
+
+.sprites-section img {
+  width: 10rem;
+  object-fit: contain;
 }

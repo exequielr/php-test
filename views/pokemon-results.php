@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,33 +8,43 @@
     <link rel="stylesheet" href="../styles/global.css">
     <title>Pokemon results</title>
 </head>
+
 <body class="container">
     <?php
-        include "../models/search.php"
+    include "../models/search.php"
     ?>
     <h1>Resultados de la busqueda</h1>
-    <p>
-        Nombre:
+    <span class="pokemon-name">
         <?php
-           echo $data->name;
+        echo $data->name;
         ?>
-    </p>
-    <p>
-        Especies:
+    </span>
+    <div>
+        <h2>Especies</h2>
         <?php
-           echo json_encode($data->species);
+        foreach ($data->species as $key => $value) {
+            if ($key === "url") {
+                echo "<p>url: <a href='$value'>$value</a></p>";
+            } else {
+                echo "<p>$key: <strong>$value</strong></p>";
+            }
+        }
         ?>
-    </p>
-    <p>
-        sprites:
-        <?php
-            foreach($data->sprites as $name => $value) {
-                if(is_string($value)){
-                    echo "$name => <img src='$value'> <br>";
+    </div>
+    <div>
+        <h2>Sprites</h2>
+        <div class="sprites-section">
+            <?php
+            foreach ($data->sprites as $name => $value) {
+                if (is_string($value)) {
+                    echo "<div><img src='$value'><p>$name</p></div>";
                 }
             }
-        ?>
-    </p>
+            ?>
+        </div>
+
+    </div>
     <a href="pokemon-search.php">Volver</a>
 </body>
+
 </html>
